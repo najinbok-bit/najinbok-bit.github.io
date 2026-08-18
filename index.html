@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나진복 | Career Statement</title>
+<style>
+  :root {
+    --navy: #0f1c3f;
+    --navy-deep: #0a1330;
+    --navy-soft: #1a2b5c;
+    --gold: #c9a227;
+    --gold-soft: #e6c65c;
+    --paper: #f6f4ef;
+    --card: #ffffff;
+    --text: #24272f;
+    --text-mute: #6b6f7a;
+    --border: #e6e2d8;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy) 55%, var(--navy-soft));
+    color: #fff;
+    padding: 64px 24px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(201,162,39,0.18), transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .hero-text { flex: 1 1 auto; min-width: 0; }
+
+  .hero-photo {
+    flex: none;
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border: 3px solid var(--gold);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12.5px;
+    color: var(--gold-soft);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 46px);
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+  }
+
+  .hero .role {
+    font-size: 18px;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 26px;
+  }
+
+  .hero .role strong { color: var(--gold-soft); font-weight: 600; }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .contact-row span { display: inline-flex; align-items: center; gap: 7px; }
+  .contact-row .dot { color: var(--gold); }
+
+  /* ---------- Stat strip ---------- */
+  .stats {
+    margin-top: -34px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(15,28,63,0.12);
+    border: 1px solid var(--border);
+  }
+
+  .stat-card .num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .stat-card .label {
+    font-size: 12.5px;
+    color: var(--text-mute);
+    margin-top: 4px;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { margin-top: 56px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-head .kr {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .section-head .en {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(15,28,63,0.05);
+  }
+
+  /* ---------- Core competencies ---------- */
+  .competency-card { padding: 28px 30px; }
+  .competency-card ul { margin: 0; padding-left: 20px; }
+  .competency-card li { margin-bottom: 10px; }
+  .competency-card li:last-child { margin-bottom: 0; }
+
+  /* ---------- Experience ---------- */
+  .exp-card {
+    padding: 26px 30px 22px;
+    margin-bottom: 20px;
+  }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .exp-org { font-size: 19px; font-weight: 700; color: var(--navy); }
+  .exp-org .tag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--navy);
+    background: #eef1f8;
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .exp-period { font-size: 13.5px; color: var(--text-mute); text-align: right; }
+  .exp-meta { font-size: 14px; color: var(--text-mute); margin-top: 3px; }
+  .exp-meta strong { color: var(--text); font-weight: 600; }
+
+  details.cat {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details.cat:last-child { margin-bottom: 0; }
+
+  details.cat summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--navy);
+    background: #fafaf7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details.cat summary::-webkit-details-marker { display: none; }
+  details.cat summary::before {
+    content: "▸";
+    color: var(--gold);
+    font-size: 12px;
+    transition: transform 0.15s ease;
+  }
+  details.cat[open] summary::before { transform: rotate(90deg); }
+
+  details.cat .cat-body {
+    padding: 14px 18px 16px;
+  }
+  details.cat ul { margin: 0; padding-left: 18px; }
+  details.cat li { margin-bottom: 8px; font-size: 14.5px; }
+  details.cat li:last-child { margin-bottom: 0; }
+
+  .simple-list { padding: 4px 4px 4px; }
+  .simple-list ul { margin: 0; padding-left: 20px; }
+  .simple-list li { margin-bottom: 8px; font-size: 14.5px; }
+
+  /* ---------- Education ---------- */
+  .edu-card { padding: 24px 30px; display: flex; flex-direction: column; gap: 10px; }
+  .edu-row { display: flex; gap: 14px; align-items: baseline; }
+  .edu-row .badge {
+    flex: none;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 3px 9px;
+  }
+
+  /* ---------- Keywords ---------- */
+  .keyword-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .keyword-card { padding: 20px 22px; }
+  .keyword-card h3 {
+    margin: 0 0 12px;
+    font-size: 14.5px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag-list span {
+    font-size: 13px;
+    background: #f3f0e6;
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+
+  /* ---------- Philosophy ---------- */
+  .philosophy {
+    background: var(--navy);
+    color: rgba(255,255,255,0.92);
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    position: relative;
+  }
+  .philosophy::before {
+    content: "“";
+    font-size: 64px;
+    color: var(--gold);
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    font-family: Georgia, serif;
+    opacity: 0.6;
+  }
+  .philosophy p {
+    margin: 0;
+    font-size: 16.5px;
+    line-height: 1.9;
+    padding-left: 8px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 60px;
+    text-align: center;
+    color: var(--text-mute);
+    font-size: 13px;
+  }
+  footer .sign { color: var(--navy); font-weight: 700; margin-bottom: 6px; }
+
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .keyword-grid { grid-template-columns: 1fr; }
+    .exp-period { text-align: left; }
+    .exp-top { flex-direction: column; }
+    .philosophy { padding: 32px 24px; }
+    .hero-inner { flex-direction: column-reverse; text-align: center; }
+    .contact-row { justify-content: center; }
+    .hero-photo { width: 128px; height: 128px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Career Statement · Finance Executive Candidate</div>
+      <h1>나진복</h1>
+      <div class="role"><strong>㈜제일기획</strong> 재무팀장 (Corporate Finance Team) &nbsp;|&nbsp; 총경력 25년 (2001.04 ~ 현재)</div>
+      <div class="contact-row">
+        <span><span class="dot">✉</span> najinbok@gmail.com</span>
+        <span><span class="dot">🎓</span> 한양대학교 경영학과 학사 (1994~2000)</span>
+      </div>
+    </div>
+    <img class="hero-photo" src="profile-photo.jpg" alt="나진복 프로필 사진">
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat-card"><div class="num">25년</div><div class="label">재무·세무 풀스코프 경력</div></div>
+    <div class="stat-card"><div class="num">16명</div><div class="label">재무팀 조직 총괄</div></div>
+    <div class="stat-card"><div class="num">11회</div><div class="label">세무조사 성공 종결(국세청)</div></div>
+    <div class="stat-card"><div class="num">45개국</div><div class="label">123개 거점 재무 관리</div></div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <span class="kr">핵심 역량</span>
+      <span class="en">Executive Summary</span>
+    </div>
+    <div class="card competency-card">
+      <ul>
+        <li>매출 4조 / 자산 3조 규모 상장사 재무팀장으로 16명 조직 총괄 <em>(부장 3·차장 2·과장 5·대리 4·사원 2)</em></li>
+        <li>입사 이래 11년 연속 최고 업적평가(Excellent), '18년부터 핵심인력 지속 선정</li>
+        <li>회계 / 세무 / 자금 / 공시 / 내부통제 / 국제조세 풀스코프 25년 경력</li>
+        <li>국세청 세무조사 8회 성공적인 종결 (지방세 2회·세관 1회 포함 총 11회) / 추가 절세 4,500억 원 이상 달성</li>
+        <li>M&amp;A · 합병 · 청산 · IFRS 도입 · K-SOX 대응 · ERP 구축 등 대형 과제 다수 주도</li>
+        <li>글로벌 45개국 123개 거점 재무 관리 경험</li>
+        <li>대표이사 표창급 수상 총 5회 — 코닝정밀소재 4회(경영대상 금상 3·은상 1) + 제일기획 Excellent Idea Person ('24, 대상급)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kr">경력 사항</span>
+      <span class="en">Professional Experience</span>
+    </div>
+
+    <!-- 제일기획 -->
+    <div class="card exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">㈜제일기획 <span class="tag">KOSPI 상장사</span></div>
+          <div class="exp-meta"><strong>재무팀장</strong> (Pro급 / Corporate Finance Team) — 16명 조직 총괄 (부장 3·차장 2·과장 5·대리 4·사원 2)</div>
+          <div class="exp-meta">회사 규모: 매출 4조 원, 자산 3조 원, 자회사 포함 45개국 123개 거점 운영</div>
+        </div>
+        <div class="exp-period">2014.02 ~ 현재<br>(12년 4개월)</div>
+      </div>
+
+      <details class="cat" open>
+        <summary>리더십 &amp; 평가</summary>
+        <div class="cat-body"><ul>
+          <li>입사 이래 11년 연속 최고 업적평가(Excellent) 등급 유지</li>
+          <li>2018년부터 회사 핵심인력 풀(Successor Pool) 지속 선정</li>
+          <li>2024년 Excellent Idea Person 수상 — 대표이사 표창급 (대상 수준)</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>세무조사 대응 및 절세</summary>
+        <div class="cat-body"><ul>
+          <li>다층 세무조사 총 11회 성공 종결 — 국세청 8회 (한솔교육 '03.2 · 코닝정밀소재 3회 · 제일기획 4회 [PTK 포함]) + 지방세 2회 (충남도청 · 용산구청) + 세관조사 1회 (서울세관 '19, 외환조사)</li>
+          <li>국세청 세무조사 다수 성공 수검 ('15·'20·'24년)</li>
+          <li>'20년 세무조사: 직전 추징 44억 → 16억으로 추징효과 최소화</li>
+          <li>'24년 세무조사: 추징 38억, 실추징 18억 (직전 比 △13억)</li>
+          <li>'24년 PTK 최초 국세청 세무조사 추징액 2억으로 종결 지원</li>
+          <li>크레듀 이슈 (총 214억 법인세 절감): 최초 236억 쟁점화 → 기재부 의견 획득 → 142억 과세 → 조세심판원 승소 22억 → 대법원 환급소송 (총 117억 환급 完, 잔여 22억 진행 中)</li>
+          <li>본사 법인세율 단계적 인하 주도: '12년 21% → '13년 19% → '14년 14%</li>
+          <li>'21년 절세항목 발굴 총 95.5억 환급 및 절세 완료 (세후이익 +95.7억, 영업이익 +11.9억)</li>
+          <li>호주지점 법인화 시 양도세 36억 면제, 본사 추가 절세 3억 발굴</li>
+          <li>'25년 본사 정기 세무조사 추징세액 38억 종결, 금감원 조사(심사) 무혐의 종결 지원</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>국제조세 / 글로벌 세무</summary>
+        <div class="cat-body"><ul>
+          <li>해외 지배구조 변경(간접→직접투자) 통한 글로벌 담세율 절세 140억+ ('19년)</li>
+          <li>러시아 증자, 스페인/베네룩스/PTGC/PTi 본사 직접투자화</li>
+          <li>BEPS 보고서 적기 도입 및 글로벌 이전가격 정책 수립 ('17~'18년)</li>
+          <li>글로벌 최저한세 도입 대응 및 관리 Tool 구축 ('24~'25년)</li>
+          <li>종속회사 국가별 실효세율 15% 미달分 본사 통합 신고/납부 제도 반영</li>
+          <li>APA(Advance Pricing Arrangement) 적용 검토 — 독일 · 인도 · 미국 · 두바이</li>
+          <li>글로벌 이전가격 정책 변경 ('25년 10월): 무형자산 청구 방식 통일, 인수자회사 청구 확대</li>
+          <li>본사向 배당 확대: '15년 73억 → '19년 582억 (8배 증가)</li>
+          <li>외납세 공제 효율화: '15년 57억 → '19년 147억</li>
+          <li>라이온즈 레포츠센터 양도세 환급소송 승소 지원 (16억 절감, '20년)</li>
+          <li>연결 법인세율 최적화 추진 ('24년 33% → '25년 32% 예상)</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>회계 / IFRS / 외부감사</summary>
+        <div class="cat-body"><ul>
+          <li>IFRS 15호(수익인식) · 9호(금융상품) · 16호(리스회계) 적기 도입 및 변경효과 최소화</li>
+          <li>16년만의 외부감사인 변경(삼일→삼정) 대응 ('23년) — 영업권 · 수익인식 · 투자주식 평가방법 등 회계이슈 최소화</li>
+          <li>'23년 지정감사 대응 및 감사수정사항 Zero化 추진</li>
+          <li>영업권 손상 평가 정밀화 — '24년 Iris 무형자산 손상 △17억 방어, BMB 158억/DIGI 38억 평가영향 최소화</li>
+          <li>환손실 약 △148억 영업이익 성장 방어 (+62억 이익개선 효과)</li>
+          <li>증빙기반 수익인식 체계 정착 — PJT 계약서 등록 강화, 분기별 Job별 점검</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>내부통제 / 거버넌스</summary>
+        <div class="cat-body"><ul>
+          <li>외부감사법 개정 대응 ('18년) 및 K-SOX 감사전환 대비 통제절차 보완 ('19~'20년)</li>
+          <li>내부회계관리제도 인증시스템 개발 및 감사 운영규정 신설</li>
+          <li>공정위 내부거래 규제 강화 대응 — 사전 대응논리 마련 및 운영</li>
+          <li>공정위 공시제도 완화 활용한 내부거래위원회 운영효율 제고 (5回/年 → 1回)</li>
+          <li>상근감사 / CFO 대면협의체 신설 ('25년), 신규 공시 대상 자금/부정 위험통제 강화</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>M&amp;A / 구조개편</summary>
+        <div class="cat-body"><ul>
+          <li>미백빌딩 매각 협상 — 256억 (손실매각 방지)</li>
+          <li>브라보(홍콩 · 상해) 합병 완료 ('19년)</li>
+          <li>Iris 7개 거점 지분 본사 인수 및 싱가폴 합병 — 캐나다 · 보스턴 · 애틀란타 · 독일 · 런던 · 인도 · 마케도니아</li>
+          <li>BMB K · BMB UK 양수도 및 거점 폐쇄</li>
+          <li>Iris 본사 대여금 33.2M£ 회수 추진 (10.4M£ 회수 完)</li>
+          <li>내부거래 정리 196M£ 中 180M£ 정리 完, 잔여 18개 거점 순차적 청산 예정</li>
+          <li>신규거점 설립 지원 (마운틴뷰)</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>자금 관리 / FCF 최적화</summary>
+        <div class="cat-body"><ul>
+          <li>운전자금 대규모 개선: '17년 △1,273억 → '18년 +383억 → '19년 △270억</li>
+          <li>FCF 목표 초과 달성 (지속): '23년 +1,109억 ('22년 1,298억 → '23년 2,407억)</li>
+          <li>'24년 FCF 초과: 上 238억/1,052, 下 2,067억/2,546</li>
+          <li>'25년 FCF 초과: 上 649억/1,935, 下 2,163억/2,393</li>
+          <li>정밀 Cash Flow 관리로 이자수익 극대화 ('16년 1.49% → 1.86%, +5억)</li>
+          <li>글로벌 자금 모니터링 강화 — Cash Proofing 도입 추진 (핀테크 연계, '26년 완료 목표)</li>
+          <li>해외법인 자금사고 예방 SWIFT NET 적용 확대 (SAP 거점 67개 中 29개 적용)</li>
+          <li>은행수수료 절감 협상 (우리/하나/씨티)</li>
+          <li>북미총괄 외부차입금 사내차입 전환으로 이자비용 사외유출 최소화</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>공시 / IR</summary>
+        <div class="cat-body"><ul>
+          <li>XBRL(신규 공시언어) 도입 및 재무제표 주석 공시 내재화 ('24~'25년)</li>
+          <li>광고주 신용등급 관리 — 나이스디앤비 AAA('12년~), 이크레더블 AA('16년~) 최고 등급 유지</li>
+          <li>광고주 리스크 평가 강화 (이크레더블 / 크레탑 등 정보서비스 활용)</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>시스템 / 프로세스 혁신</summary>
+        <div class="cat-body"><ul>
+          <li>全社 Tax 업무 체계화 추진 및 사전 이슈관리 체계 구축 (PwC 협업 자가진단)</li>
+          <li>SAP 사용 확대 및 시스템 이관 지원 (Iris · BMB · 센트레이드)</li>
+          <li>재무팀 조직활성화 및 인력 강화 — 파견직 정규직 전환, 신입/경력 확보</li>
+        </ul></div>
+      </details>
+    </div>
+
+    <!-- 코닝정밀소재 -->
+    <div class="card exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">㈜코닝정밀소재 <span class="tag">구 삼성코닝정밀소재</span></div>
+          <div class="exp-meta"><strong>과장, 재무그룹</strong> — 회계 · 세무 · 자산 · 자금 실무 및 핵심 프로젝트</div>
+          <div class="exp-meta">회사 규모: 매출 7조 원 (글로벌 소재 대기업)</div>
+        </div>
+        <div class="exp-period">2003.05 ~ 2014.02<br>(10년 10개월)</div>
+      </div>
+
+      <details class="cat" open>
+        <summary>핵심 성과</summary>
+        <div class="cat-body"><ul>
+          <li>국세청 세무조사 3회 성공 수검 ('03.8 · '08 · '10) + 지방세 충남도청 '08 대응</li>
+          <li>삼성코닝 흡수합병 프로젝트 수행 (2007년)</li>
+          <li>탕정공장 부지 매입 협상으로 111억 원 절감 (총 1,900억 매입)</li>
+          <li>S-ERP 구축 핵심 멤버 (SCP 2011~2012, SCG 2012~2013)</li>
+          <li>IFRS 도입 세무부문 추진 (2009년) 및 중기 세무 선진화 Road Map 수립 (2010년)</li>
+          <li>대규모 Tax 절감 약 3,400억 원 달성</li>
+          <li>거점별 주요 이슈 공동 대응 — 평타이 · 인도 · 독일 · 미국 등</li>
+        </ul></div>
+      </details>
+
+      <details class="cat">
+        <summary>수상 / 인정</summary>
+        <div class="cat-body"><ul>
+          <li>대표이사 표창 4회 수상 — 경영대상 금상 3회 · 은상 1회</li>
+          <li>2008년 금상 · 2009년 은상 · 2010년 금상 · 2012년 금상</li>
+          <li>자율혁신 관리체 시스템 구축 (2013년)</li>
+        </ul></div>
+      </details>
+    </div>
+
+    <!-- 한솔교육 -->
+    <div class="card exp-card" style="margin-bottom:0;">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">㈜한솔교육</div>
+          <div class="exp-meta"><strong>대리, 재경팀</strong> — 회계 담당</div>
+          <div class="exp-meta">회사 규모: 매출 2,900억 원, 자산 1,400억 원</div>
+        </div>
+        <div class="exp-period">2001.04 ~ 2003.05<br>(2년 2개월)</div>
+      </div>
+
+      <div class="simple-list">
+        <ul>
+          <li>재경팀 회계 실무 담당 및 세무 업무 수행</li>
+          <li>입사 초기 국세청 세무조사 ('03.2월) 성공 종결 — 25년 세무 커리어의 출발점</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kr">학력 / 자격</span>
+      <span class="en">Education &amp; Certification</span>
+    </div>
+    <div class="card edu-card">
+      <div class="edu-row"><span class="badge">학사</span> 한양대학교 경영학과 (1994.03 ~ 2000.02)</div>
+      <div class="edu-row"><span class="badge">자격</span> 6시그마 Green Belt</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kr">전문 분야 / 핵심 키워드</span>
+      <span class="en">Expertise</span>
+    </div>
+    <div class="keyword-grid">
+      <div class="card keyword-card">
+        <h3>회계</h3>
+        <div class="tag-list">
+          <span>IFRS</span><span>연결회계</span><span>결산</span><span>외부감사</span><span>영업권 손상 평가</span>
+        </div>
+      </div>
+      <div class="card keyword-card">
+        <h3>세무</h3>
+        <div class="tag-list">
+          <span>법인세</span><span>세무조사대응</span><span>국제조세</span><span>BEPS</span><span>APA</span><span>이전가격</span><span>글로벌 최저한세</span>
+        </div>
+      </div>
+      <div class="card keyword-card">
+        <h3>자금</h3>
+        <div class="tag-list">
+          <span>자금관리</span><span>FCF 최적화</span><span>Cash Proofing</span><span>SWIFT NET</span><span>운전자금 관리</span>
+        </div>
+      </div>
+      <div class="card keyword-card">
+        <h3>공시</h3>
+        <div class="tag-list">
+          <span>IR</span><span>XBRL</span><span>공정위 공시</span><span>내부거래위원회</span>
+        </div>
+      </div>
+      <div class="card keyword-card">
+        <h3>내부통제</h3>
+        <div class="tag-list">
+          <span>K-SOX</span><span>내부회계관리제도</span><span>외부감사법 대응</span><span>거버넌스</span>
+        </div>
+      </div>
+      <div class="card keyword-card">
+        <h3>M&amp;A</h3>
+        <div class="tag-list">
+          <span>합병</span><span>청산</span><span>사업양수도</span><span>해외법인 구조개편</span>
+        </div>
+      </div>
+      <div class="card keyword-card" style="grid-column: 1 / -1;">
+        <h3>시스템 / 전략</h3>
+        <div class="tag-list">
+          <span>SAP</span><span>S-ERP 구축</span><span>재무전략</span><span>리스크관리</span><span>경영기획</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kr">재무에 대한 철학</span>
+      <span class="en">Philosophy</span>
+    </div>
+    <div class="philosophy">
+      <p>재무의 미션은 경영진이 올바른 의사결정을 내릴 수 있도록 정확하고 적시에 재무정보를 제공하는 것입니다. 나아가 선제적으로 리스크를 방어하고, 캐시아웃을 최소화하며, 프로세스를 강화하여 경영 효율을 극대화하는 것이 재무의 본질적 역할이라 믿습니다. 이러한 철학을 바탕으로 25년간 단순 실무를 넘어 경영진의 전략 파트너로서 기업가치 제고에 기여해 왔으며, 앞으로도 더 큰 무대에서 전략재무를 펼치고자 합니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sign">나 진 복</div>
+    <div>najinbok@gmail.com</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
